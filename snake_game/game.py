@@ -1,11 +1,12 @@
 from .snake import Snake
+from .constants import SCREEN_WIDTH, SCREEN_HEIGHT
 import pygame
 
 class Game:
     def __init__(self):
         pygame.init()
 
-        self._screen = pygame.display.set_mode([800, 600])
+        self._screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
         self._clock = pygame.time.Clock()
 
         self._snake = Snake()
