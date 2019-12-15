@@ -10,7 +10,7 @@ class Game:
         self._running = True
 
     def run(self):
-        while self.running:
+        while self._running:
             self._poll_events()
 
             self.update()
