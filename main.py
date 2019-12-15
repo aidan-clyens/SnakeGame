@@ -2,7 +2,7 @@ from snake_game import Game
 
 
 def main():
-    Game game
+    game = Game()
 
     game.run()
 

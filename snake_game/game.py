@@ -4,7 +4,8 @@ class Game:
     def __init__(self):
         pygame.init()
 
-        self._clock = pygame.Clock()
+        self._screen = pygame.display.set_mode([800, 600])
+        self._clock = pygame.time.Clock()
 
         self._running = True
 
@@ -29,4 +30,4 @@ class Game:
         pass
 
     def render(self):
-        pass
+        pygame.display.flip()
