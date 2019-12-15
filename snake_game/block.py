@@ -6,7 +6,7 @@ class Block:
         self._position = pos
         self._size = [GRID_SIZE, GRID_SIZE]
 
-        self._image = pygame.Surface(size)
+        self._image = pygame.Surface(self._size)
         self._image.fill(pygame.Color(255, 255, 255))
 
     def update(self, pos=None):
