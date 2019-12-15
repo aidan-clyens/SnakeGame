@@ -11,7 +11,7 @@ class Game:
 
     def run(self):
         while self._running:
-            self._poll_events()
+            self.poll_events()
 
             self.update()
             self.render()
