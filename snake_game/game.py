@@ -1,4 +1,5 @@
 from .snake import Snake
+from .block import Block
 from .constants import SCREEN_WIDTH, SCREEN_HEIGHT
 import pygame
 
@@ -9,6 +10,7 @@ class Game:
         self._screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
         self._clock = pygame.time.Clock()
 
+        self._food = Block([100, 100])
         self._snake = Snake()
 
         self._running = True
@@ -31,8 +33,10 @@ class Game:
                 self._running = False
     
     def update(self):
+        self._food.update()
         self._snake.update()
 
     def render(self):
+        self._food.render(screen)
         self._snake.render(self._screen)
         pygame.display.flip()

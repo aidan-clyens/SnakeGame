@@ -1,9 +1,10 @@
+from .constants import GRID_SIZE
 import pygame
 
 class Block:
-    def __init__(self, pos, size):
+    def __init__(self, pos):
         self._position = pos
-        self._size = size
+        self._size = [GRID_SIZE, GRID_SIZE]
 
         self._image = pygame.Surface(size)
         self._image.fill(pygame.Color(255, 255, 255))
