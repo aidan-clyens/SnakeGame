@@ -22,7 +22,7 @@ class Game:
             self.update()
             self.render()
 
-            self._clock.tick(60)
+            self._clock.tick(10)
 
     def quit(self):
         pygame.quit()
