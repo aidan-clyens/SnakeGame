@@ -37,6 +37,9 @@ class Game:
         self._snake.update()
 
     def render(self):
+        self._screen.fill(pygame.Color(0, 0, 0))
+
         self._food.render(self._screen)
         self._snake.render(self._screen)
+        
         pygame.display.flip()
