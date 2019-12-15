@@ -1,3 +1,4 @@
+from .snake import Snake
 import pygame
 
 class Game:
@@ -6,6 +7,8 @@ class Game:
 
         self._screen = pygame.display.set_mode([800, 600])
         self._clock = pygame.time.Clock()
+
+        self._snake = Snake()
 
         self._running = True
 
@@ -27,7 +30,8 @@ class Game:
                 self._running = False
     
     def update(self):
-        pass
+        self._snake.update()
 
     def render(self):
+        self._snake.render(self._screen)
         pygame.display.flip()
