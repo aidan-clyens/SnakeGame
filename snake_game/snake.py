@@ -15,10 +15,22 @@ class Snake:
     def update(self):
         self.set_direction()
 
-        prev_dir = self._direction
-        for i in range(len(self._blocks)):
-            self._blocks[i].update(prev_dir)
-            prev_dir = self._blocks[i]._direction
+        pos = self._blocks[0].position()
+
+        if self._direction == Direction.Left:
+            pos[0] -= GRID_SIZE
+            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+        if self._direction == Direction.Right:
+            pos[0] += GRID_SIZE
+            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+        if self._direction == Direction.Up:
+            pos[1] -= GRID_SIZE
+            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+        if self._direction == Direction.Down:
+            pos[1] += GRID_SIZE
+            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+
+        self._blocks.pop()
 
     def render(self, screen):
         for block in self._blocks:
