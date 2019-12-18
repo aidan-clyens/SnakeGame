@@ -2,6 +2,7 @@ from .snake import Snake
 from .block import Block
 from .constants import SCREEN_WIDTH, SCREEN_HEIGHT
 import pygame
+import random
 
 
 class Game:
@@ -34,12 +35,14 @@ class Game:
                 self._running = False
     
     def update(self):
-        if self._snake.collides_food(self._food):
-            self._snake.add_new_block()
-        
         self._food.update()
         self._snake.update()
 
+        if self._snake.collides_food(self._food):
+            self._food.set_position([random.randint(0, SCREEN_WIDTH), random.randint(0, SCREEN_HEIGHT)])
+
+            self._snake.add_new_block()
+        
     def render(self):
         self._screen.fill(pygame.Color(0, 0, 0))
 

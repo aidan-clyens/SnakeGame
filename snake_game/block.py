@@ -17,3 +17,7 @@ class Block:
 
     def render(self, screen):
         screen.blit(self._image, [self._rect.x, self._rect.y])
+
+    def set_position(self, position):
+        self._rect.x = position[0]
+        self._rect.y = position[1]
