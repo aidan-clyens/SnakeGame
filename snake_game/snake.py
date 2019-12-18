@@ -1,6 +1,6 @@
 from .block import Block
 from .direction import Direction
-from .constants import GRID_SIZE
+from .constants import SCREEN_WIDTH, SCREEN_HEIGHT, GRID_SIZE
 import pygame
 
 
@@ -16,6 +16,16 @@ class Snake:
         self.set_direction()
 
         pos = self._blocks[0].position()
+
+        if pos[0] > SCREEN_WIDTH:
+            pos[0] = 0
+        if pos[0] < 0:
+            pos[0] = SCREEN_WIDTH
+
+        if pos[1] > SCREEN_HEIGHT:
+            pos[1] = 0
+        if pos[1] < 0:
+            pos[1] = SCREEN_HEIGHT
 
         if self._direction == Direction.Left:
             pos[0] -= GRID_SIZE
