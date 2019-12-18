@@ -1,6 +1,7 @@
 from .constants import GRID_SIZE
 import pygame
 
+
 class Block:
     def __init__(self, pos):
         self._position = pos

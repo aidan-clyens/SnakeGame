@@ -57,3 +57,15 @@ class Snake:
 
         if pressed[pygame.K_s]:
             self._direction = Direction.Down
+
+    def collides_food(self, food):
+        if self._blocks[0].collides(food):
+            return True
+
+        return False
+
+    def add_new_block(self):
+        pos = self._blocks[-1]._position
+        print(f"Created block: {pos}")
+        print(f"Num blocks: {len(self._blocks)}")
+        self._blocks.append(Block(pos))

@@ -3,6 +3,7 @@ from .block import Block
 from .constants import SCREEN_WIDTH, SCREEN_HEIGHT
 import pygame
 
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -36,10 +37,13 @@ class Game:
         self._food.update()
         self._snake.update()
 
+        if self._snake.collides_food(self._food):
+            self._snake.add_new_block()
+
     def render(self):
         self._screen.fill(pygame.Color(0, 0, 0))
 
         self._food.render(self._screen)
         self._snake.render(self._screen)
-        
+
         pygame.display.flip()
