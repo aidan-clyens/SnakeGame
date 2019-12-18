@@ -11,10 +11,7 @@ class Block:
         self._image.fill(pygame.Color(255, 255, 255))
         self._rect = self._image.get_rect()
 
-    def update(self, pos=None):
-        if pos is not None:
-            self._position = pos
-
+    def update(self):
         self._rect.x = self._position[0]
         self._rect.y = self._position[1]
 
