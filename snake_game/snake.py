@@ -39,8 +39,9 @@ class Snake:
             self._direction = Direction.Down
 
     def collides_food(self, food):
-        if self._blocks[0].collides(food):
-            return True
+        for block in self._blocks:
+            if block.collides(food):
+                return True
 
         return False
 
