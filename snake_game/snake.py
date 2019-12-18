@@ -1,4 +1,4 @@
-from .snake_block import SnakeBlock
+from .block import Block
 from .direction import Direction
 from .constants import GRID_SIZE
 import pygame
@@ -10,7 +10,7 @@ class Snake:
         self._direction = Direction.Left
 
         self._blocks = []
-        self._blocks.append(SnakeBlock([200, 200], self._direction))
+        self._blocks.append(Block([200, 200], self._direction))
 
     def update(self):
         self.set_direction()
@@ -19,16 +19,16 @@ class Snake:
 
         if self._direction == Direction.Left:
             pos[0] -= GRID_SIZE
-            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+            self._blocks.insert(0, Block(pos, self._direction))
         if self._direction == Direction.Right:
             pos[0] += GRID_SIZE
-            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+            self._blocks.insert(0, Block(pos, self._direction))
         if self._direction == Direction.Up:
             pos[1] -= GRID_SIZE
-            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+            self._blocks.insert(0, Block(pos, self._direction))
         if self._direction == Direction.Down:
             pos[1] += GRID_SIZE
-            self._blocks.insert(0, SnakeBlock(pos, self._direction))
+            self._blocks.insert(0, Block(pos, self._direction))
 
         self._blocks.pop()
 
@@ -71,6 +71,4 @@ class Snake:
         if direction == Direction.Down:
             pos[1] -= GRID_SIZE
 
-        print(f"Created block: {pos}")
-        print(f"Num blocks: {len(self._blocks)}")
-        self._blocks.append(SnakeBlock(pos, direction))
+        self._blocks.append(Block(pos, direction))
