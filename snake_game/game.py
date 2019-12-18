@@ -38,6 +38,7 @@ class Game:
                 self._running = False
 
     def update(self):
+        self._snake.set_direction()
         self._snake.update()
 
         if self._snake.lose():

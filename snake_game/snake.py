@@ -13,8 +13,6 @@ class Snake:
         self._blocks.append(Block([200, 200], self._direction))
 
     def update(self):
-        self.set_direction()
-
         pos = self._blocks[0].position()
 
         if pos[0] > SCREEN_WIDTH:
