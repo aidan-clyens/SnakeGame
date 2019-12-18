@@ -14,20 +14,6 @@ class SnakeBlock:
         self._rect.x = pos[0]
         self._rect.y = pos[1]
 
-    def update(self, direction=None):
-        if direction is not None:
-            self._direction = direction
-
-        if self._direction is not None:
-            if self._direction == Direction.Left:
-                self._rect.x -= GRID_SIZE
-            if self._direction == Direction.Right:
-                self._rect.x += GRID_SIZE
-            if self._direction == Direction.Up:
-                self._rect.y -= GRID_SIZE
-            if self._direction == Direction.Down:
-                self._rect.y += GRID_SIZE
-
     def render(self, screen):
         screen.blit(self._image, [self._rect.x, self._rect.y])
 
