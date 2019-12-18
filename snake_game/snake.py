@@ -40,16 +40,20 @@ class Snake:
         pressed = pygame.key.get_pressed()
 
         if pressed[pygame.K_a]:
-            self._direction = Direction.Left
+            if not self._direction == Direction.Right:
+                self._direction = Direction.Left
 
         if pressed[pygame.K_d]:
-            self._direction = Direction.Right
+            if not self._direction == Direction.Left:
+                self._direction = Direction.Right
 
-        if pressed[pygame.K_w]:
-            self._direction = Direction.Up
+        if pressed[pygame.K_w]:       
+            if not self._direction == Direction.Down:
+                self._direction = Direction.Up
 
         if pressed[pygame.K_s]:
-            self._direction = Direction.Down
+            if not self._direction == Direction.Up:
+                self._direction = Direction.Down
 
     def collides_food(self, food):
         for block in self._blocks:
