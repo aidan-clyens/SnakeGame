@@ -40,6 +40,9 @@ class Game:
     def update(self):
         self._snake.update()
 
+        if self._snake.lose():
+            self._running = False
+
         if self._snake.collides_food(self._food):
             self._food.set_position([
                 random.randint(0, COLS) * GRID_SIZE,

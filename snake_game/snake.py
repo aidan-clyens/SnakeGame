@@ -58,6 +58,13 @@ class Snake:
 
         return False
 
+    def lose(self):
+        for i in range(1, len(self._blocks)):
+            if self._blocks[0].collides(self._blocks[i]):
+                return True
+
+        return False
+
     def add_new_block(self):
         pos = self._blocks[-1].position()
         direction = self._blocks[-1]._direction
