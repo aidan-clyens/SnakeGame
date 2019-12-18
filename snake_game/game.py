@@ -34,11 +34,11 @@ class Game:
                 self._running = False
     
     def update(self):
-        self._food.update()
-        self._snake.update()
-
         if self._snake.collides_food(self._food):
             self._snake.add_new_block()
+        
+        self._food.update()
+        self._snake.update()
 
     def render(self):
         self._screen.fill(pygame.Color(0, 0, 0))
